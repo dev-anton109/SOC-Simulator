@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOC Simulator</title>
+    <link class="code-link" rel="stylesheet" href="reports.css">
+</head>
+<body>
+
+    <div class="left-line">
+        <div class="gray-box">STP Monitor</div>
+
+        <div class="nav-buttons">
+	    <a href="../../index.html">
+                <button class="side-btn">Logs/Alerts</button>
+            </a>
+
+            <a href="../../help.html">
+                <button class="side-btn">Help Menu</button>
+            </a>
+
+            <a href="../../report.html">
+                <button class="side-btn">Report</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="header-bar">
+        Report 2 Panel
+    </div>
+
+    <div class="main-content" id="reports-container">
+        <div class="report-actions-container">
+            <button class="action-btn true-positive" data-choice="true-positive">
+                <span class="icon">✓</span> True Positive
+            </button>
+            <button class="action-btn false-positive" data-choice="false-positive">
+                <span class="icon">✗</span> False Positive
+            </button>
+        </div>
+
+        <div id="feedback-message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
