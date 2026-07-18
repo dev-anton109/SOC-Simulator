@@ -4,7 +4,7 @@
 PORT=8000
 
 [[ -f package.json ]] || { npm init -y && npm install express cors; }
-[[ -d cgi-bin ]] || ./backend.sh
+[[ -d cgi-bin ]] || ./backend
 
 echo "Starting server on port $PORT..."
 echo "Open your browser and go to http://localhost:$PORT"
