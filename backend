@@ -1,0 +1,194 @@
+#!/usr/bin/env bash
+
+[[ ! -d reports ]] && { echo "Directory: reports not found."; exit 1; }
+[[ ! -d cgi-bin ]] && mkdir -p cgi-bin
+cd reports
+
+for file in *.txt; do
+touch "$file".cgi
+echo " " >> "$file".cgi
+sed -i '1i #!/bin/bash' "$file".cgi
+
+echo "echo \"Content-Type: text/html\"" >> "$file".cgi
+echo "echo \"\"" >> "$file.cgi"
+
+cat >>"$file".cgi <<EOF
+cat <<EOF
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautifully Formatted Text Document</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.75;
+            color: #2D3748;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        p {
+            background-color: #ffffff;
+            max-width: 1000px;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            font-size: 15px;
+            letter-spacing: -0.01em;
+
+            white-space: pre-line;
+
+        }
+
+        p:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        p::first-letter {
+            font-size: 3.5rem;
+            font-weight: 800;
+            float: left;
+            margin-right: 12px;
+            line-height: 0.85;
+            color: #4F46E5;
+        }
+
+	.back-btn {
+	    display: inline-flex;
+	    align-items: center;
+	    gap: 8px;
+	    padding: 10px 20px;
+	    background-color: #334155;
+	    color: #F8FAFC;
+	    text-decoration: none;
+	    font-weight: 600;
+	    font-size: 14px;
+	    border-radius: 30px;
+	    border: 1px solid rgba(255, 255, 255, 0.1);
+	    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	    transition: all 0.2s ease-in-out;
+	    cursor: pointer;
+
+	    margin-bottom: 20px;
+	    align-self: flex-start;
+	}
+
+	.back-btn:hover {
+	    background-color: #475569;
+	    transform: translateX(-3px);
+	    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+	}
+
+	.back-btn:active {
+	    transform: translateX(-1px);
+	}
+    </style>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; max-width: 700px; width: 100%;">
+
+    <a href="../index.html" class="back-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back</span>
+    </a>
+
+    <p>
+EOF
+
+while IFS= read -r line; do
+echo "$line" >> "$file".cgi
+
+done < "$file"
+echo "    </p>" >> "$file".cgi
+echo "</body>" >> "$file".cgi
+echo "</html>" >> "$file".cgi
+echo "EOF" >> "$file.cgi"
+    chmod +x "$file".cgi
+    mv "$file".cgi "$HOME"/SOC-Simulator/cgi-bin
+done
+
+
+cd .. && cd cgi-bin
+
+for script in *.txt.cgi; do
+touch "$script".html.cgi
+
+cat >>"$script".html.cgi  <<EOF
+#!/bin/bash
+
+echo "Content-type: text/html"
+
+cat <<EOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOC Simulator</title>
+    <link class="code-link" rel="stylesheet" type="text/css" href="../reports/report_pages/reports.css">
+</head>
+<body>
+
+    <div class="left-line">
+        <div class="gray-box">STP Monitor</div>
+
+        <div class="nav-buttons">
+	    <a href="../../index.html">
+                <button class="side-btn">Logs/Alerts</button>
+            </a>
+
+            <a href="../../help.html">
+                <button class="side-btn">Help Menu</button>
+            </a>
+
+            <a href="../../report.html">
+                <button class="side-btn">Report</button>
+            </a>
+
+            <a href="../../support.html">
+                <button class="side-btn">Support/Credits</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="header-bar">
+         Report panel
+    </div>
+
+    <div class="main-content" id="reports-container">
+        <div class="report-actions-container">
+            <button class="action-btn true-positive" data-choice="true-positive">
+                <span class="icon">✓</span> True Positive
+            </button>
+            <button class="action-btn false-positive" data-choice="false-positive">
+                <span class="icon">✗</span> False Positive
+            </button>
+        </div>
+
+        <div id="feedback-message"></div>
+    </div>
+
+    <script src="../reports/report_pages/script.js"> defer></script>
+</body>
+</html>
+
+EOF
+echo 'EOF' >> "$script".html.cgi
+
+chmod +x "$script".html.cgi
+# mv "$script".html.cgi "$HOME"/SOC-Simulator/reports/report_pages
+done
+
