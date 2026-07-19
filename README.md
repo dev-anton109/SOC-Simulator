@@ -48,6 +48,10 @@ Before starting the servers, you need to make some files executable by typing th
 
 	- chmod +x init_server.sh
 
+	- chmod +x reports.css [located on: ~/reports/report_pages]
+
+	- chmod +x script.js   [located on: ~/reports/report_pages]
+
 In order to start these 2 servers, type the following commands:
 
 	- ./init_server.sh
