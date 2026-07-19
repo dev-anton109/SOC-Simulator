@@ -7,7 +7,7 @@ const quizAnswerKey = {
 };
 
 const path = window.location.pathname;
-const currentReport = path.substring(path.lastIndexOf('/') + 1).replace('.html', '');
+const currentReport = path.substring(path.lastIndexOf('/') + 1).replace('.txt.cgi.html.cgi', '');
 
 const actionButtons = document.querySelectorAll('.action-btn');
 const feedbackMessage = document.getElementById('feedback-message');
