@@ -129,7 +129,8 @@ touch "$script".html.cgi
 cat >>"$script".html.cgi  <<EOF
 #!/bin/bash
 
-echo "Content-type: text/html"
+echo "Content-Type: text/html"
+echo ""
 
 cat <<EOF
 <!DOCTYPE html>
