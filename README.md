@@ -38,6 +38,16 @@ Front-end server is hosted on localhost:8000 (That's where you should go).
 
 Back-end server is hosted on localhost:3000  (Ignore this).
 
+PREREQUISITES
+
+Before starting the servers, you need to make some files executable by typing the following commands:
+
+	- chmod +x backend
+
+	- chmod +x reset.sh
+
+	- chmod +x init_server.sh
+
 In order to start these 2 servers, type the following commands:
 
 	- ./init_server.sh
