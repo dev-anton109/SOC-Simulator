@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 
 app.get('/api/report-count', (req, res) => {
-    const directoryPath = path.join(__dirname, 'cgi-bin');
+    const directoryPath = path.join(__dirname, 'reports');
 
     fs.readdir(directoryPath, (err, files) => {
         if (err) {
