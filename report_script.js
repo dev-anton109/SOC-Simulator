@@ -10,7 +10,7 @@ function generateReportButtons(fileCount) {
         btn.className = 'report-btn';
 
         btn.onclick = function() {
-            window.location.href = `/reports/report_pages/report${i}.html`;
+            window.location.href = `/cgi-bin/report${i}.txt.cgi.html.cgi`;
         };
 
         container.appendChild(btn);
