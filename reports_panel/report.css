@@ -1,0 +1,194 @@
+.left-line {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    
+    width: 150px;
+    height: 100vh;
+    
+    background-color: #1e3a8a;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.7);
+    -webkit-font-smoothing: antialiased;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 30;
+}
+
+.gray-box {
+    width: 100%;
+    height: 85px;
+    background-color: #0f172a;
+    border-bottom-right-radius: 25px;
+
+    color: #f8fafc;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    width: 100%;
+    align-items: center;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.side-btn {
+    width: 147px;
+    height: 85px;
+    border: none;
+    border-radius: 9px;
+    background-color: rgba(255, 255, 255, 0.15);
+
+    color: white;
+    font-size: 15px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, transform 0.1 ease;
+}
+
+.side-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.side-btn:active{
+    transform: scale(0.9);
+}
+
+.header-bar {
+    position: fixed;
+    top: 0;
+    left: 150px;
+    right: 0;
+    height: 85px;
+
+    background-color: rgba(241, 245, 249, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 1);
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #334155;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
+    font-size: 35px;
+    letter-spacing: 0.5px;
+}
+
+.main-content {
+    padding-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.report-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    box-sizing: border-box;
+
+    background-color: rgba(15, 9, 141, 0.5);
+    border: 5px solid rgba(255, 255, 255, 0.30);
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+
+    transition: background-color: 0.2s ease, border-color: 0.2s ease;
+}
+
+.report-btn:hover {
+    background-color: rgba(13, 0, 255, 0.43);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.action-btn {
+    background-color: #1e3a8a;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+
+    padding: 6px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.action-btn:hover {
+    background-color: #1e40af;
+    transform: translateX(2px);
+}
+
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.toast {
+    background-color: #1e1e2e;
+    color: #ffffff;
+    border-left: 4px solid #ff4757;
+    padding: 12px 16px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-family: monospace, sans-serif;
+    min-width: 250px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+body {
+    margin: 0;
+    padding-left: 155px;
+    padding-top: 45px;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #d6d6d6;
+}
