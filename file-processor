@@ -63,35 +63,35 @@ cat <<EOF
             color: #4F46E5;
         }
 
-	.back-btn {
-	    display: inline-flex;
-	    align-items: center;
-	    gap: 8px;
-	    padding: 10px 20px;
-	    background-color: #334155;
-	    color: #F8FAFC;
-	    text-decoration: none;
-	    font-weight: 600;
-	    font-size: 14px;
-	    border-radius: 30px;
-	    border: 1px solid rgba(255, 255, 255, 0.1);
-	    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-	    transition: all 0.2s ease-in-out;
-	    cursor: pointer;
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: #334155;
+            color: #F8FAFC;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
 
-	    margin-bottom: 20px;
-	    align-self: flex-start;
-	}
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
 
-	.back-btn:hover {
-	    background-color: #475569;
-	    transform: translateX(-3px);
-	    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-	}
+        .back-btn:hover {
+            background-color: #475569;
+            transform: translateX(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        }
 
-	.back-btn:active {
-	    transform: translateX(-1px);
-	}
+        .back-btn:active {
+            transform: translateX(-1px);
+        }
     </style>
 </head>
 <body>
@@ -147,7 +147,7 @@ cat <<EOF
         <div class="gray-box">STP Monitor</div>
 
         <div class="nav-buttons">
-	    <a href="../index_webpage/index.html">
+            <a href="../index_webpage/index.html">
                 <button class="side-btn">Logs/Alerts</button>
             </a>
 
@@ -166,7 +166,7 @@ cat <<EOF
     </div>
 
     <div class="header-bar">
-         Report panel
+         Report Panel
     </div>
 
     <div class="main-content" id="reports-container">
@@ -182,7 +182,7 @@ cat <<EOF
         <div id="feedback-message"></div>
     </div>
 
-    <script src="../reports_panel/reports_webpages/script.js"> defer></script>
+    <script src="../reports_panel/reports_webpages/reports.js"> defer></script>
 </body>
 </html>
 
@@ -192,4 +192,3 @@ echo 'EOF' >> "$script".html.cgi
 chmod +x "$script".html.cgi
 # mv "$script".html.cgi "$HOME"/SOC-Simulator/reports/report_pages
 done
-
