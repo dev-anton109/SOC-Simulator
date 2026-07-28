@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-[[ ! -d reports ]] && { echo "Directory: reports not found."; exit 1; }
+[[ ! -d reports_TXT ]] && { echo "Directory: reports not found."; exit 1; }
 [[ ! -d cgi-bin ]] && mkdir -p cgi-bin
 cd reports_TXT
 
@@ -139,7 +139,7 @@ cat <<EOF
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOC Simulator</title>
-    <link class="code-link" rel="stylesheet" type="text/css" href="../reports/report_pages/reports.css">
+    <link class="code-link" rel="stylesheet" type="text/css" href="../reports_panel/reports_webpages/reports.css">
 </head>
 <body>
 
@@ -147,19 +147,19 @@ cat <<EOF
         <div class="gray-box">STP Monitor</div>
 
         <div class="nav-buttons">
-	    <a href="../../index.html">
+	    <a href="../index_webpage/index.html">
                 <button class="side-btn">Logs/Alerts</button>
             </a>
 
-            <a href="../../help.html">
+            <a href="../help_webpage/help.html">
                 <button class="side-btn">Help Menu</button>
             </a>
 
-            <a href="../../report.html">
+            <a href="../reports_panel/report.html">
                 <button class="side-btn">Report</button>
             </a>
 
-            <a href="../../support.html">
+            <a href="../support_webpage/support.html">
                 <button class="side-btn">Support/Credits</button>
             </a>
         </div>
@@ -182,7 +182,7 @@ cat <<EOF
         <div id="feedback-message"></div>
     </div>
 
-    <script src="../reports/report_pages/script.js"> defer></script>
+    <script src="../reports_panel/reports_webpages/script.js"> defer></script>
 </body>
 </html>
 
