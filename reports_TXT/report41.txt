@@ -1,0 +1,15 @@
+Alert Metadata:
+Alert Name: Unusual Port Usage
+Severity: Medium
+Timestamp: 2026-07-18T15:20:00Z
+Sensor: Palo Alto Networks
+
+Raw Log Data:
+time,src_ip,dst_ip,dst_port,app,action
+2026-07-18T15:20:00Z,10.20.1.5,10.30.1.5,4444,raw-tcp,allowed
+
+Artifact Panel Context:
+
+IP Context: 10.30.1.5 is a legacy application server.
+
+Behavior: Known issue with proprietary application requiring manual troubleshooting connection via raw socket.

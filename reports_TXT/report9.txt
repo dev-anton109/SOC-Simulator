@@ -1,0 +1,32 @@
+Alert Metadata:
+Alert Name: Multiple Admin Login Failures
+Severity: Low
+Timestamp: 2026-07-18T10:30:00Z
+Sensor: Okta
+
+[event]
+published = "2026-07-18T10:30:00.123Z"
+eventType = "user.session.start"
+displayMessage = "User login to Okta"
+severity = "WARN"
+
+[actor]
+id = "00u12345admin"
+type = "User"
+alternateId = "sysadmin@company.com"
+
+[client]
+ipAddress = "10.0.50.211"
+userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+
+[outcome]
+result = "FAILURE"
+reason = "INVALID_CREDENTIALS"
+
+Artifact Panel Context:
+
+Login History: User achieved successful authentication 14 seconds after the 3rd failed attempt.
+
+IP Context: 10.0.50.211 is the known static IP for the IT Department's primary management VLAN.
+
+MFA Status: The subsequent successful login completed Duo Push verification successfully.

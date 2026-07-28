@@ -1,0 +1,17 @@
+Alert Metadata:
+Alert Name: Unusual Geo-Location Login
+Severity: Medium
+Timestamp: 2026-07-18T16:30:00Z
+Sensor: Okta
+
+Raw Log Data:
+[event]
+User = "b.white@company.com"
+IP = "203.0.113.88"
+Location = "Moscow, Russia"
+
+Artifact Panel Context:
+
+HR Context: B. White is currently on a business trip to Moscow.
+
+Device: Corporate-managed laptop, MFA satisfied.

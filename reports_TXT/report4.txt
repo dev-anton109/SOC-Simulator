@@ -1,0 +1,68 @@
+Alert Metadata
+
+    Alert Name: Web Server Spawning Execution Shell
+
+    Severity: Critical
+
+    Timestamp: 2026-07-13T14:35:22.112Z
+
+    Sensor/Tool Source: Microsoft Defender for Cloud (Server EDR)
+
+The Raw Log Data
+
+[event]
+id = "mde-7721a90b-11bc-499f-88a2-1209bc71cfa2"
+type = "ProcessCreation"
+timestamp = "2026-07-13T14:35:22.112Z"
+
+[endpoint]
+hostname = "RECP-WEB-PROD01"
+ip_address = "192.168.10.25"
+os = "Windows Server 2019 Standard"
+
+[process]
+pid = 18404
+name = "cmd.exe"
+path = "C:\\Windows\\System32\\cmd.exe"
+command_line = "cmd.exe /c \"whoami && ipconfig /all && net user\""
+sha256 = "0d20d71d604b7f94119842095cf2333b2a26569ec99ca70cfbdf5a1e2f75a84e"
+user = "IIS APPPOOL\\DefaultAppPool"
+
+[parent_process]
+pid = 4312
+name = "w3wp.exe"
+path = "C:\\Windows\\System32\\inetsrv\\w3wp.exe"
+command_line = "c:\\windows\\system32\\inetsrv\\w3wp.exe -ap \"DefaultAppPool\" -v \"v4.0\" -l \"webengine4.dll\" -a \\\\.\\pipe\\iisipm70be31d-b8d4-4a6c-9be3-f9ce3e30fba9 -h \"C:\\inetpub\\temp\\apppools\\DefaultAppPool\\DefaultAppPool.config\" -w \"\" -m 0 -t 20 -ta 0"
+
+Artifact Panel Context
+1. Process Lineage Tree
+
+    services.exe (PID: 612) — Windows Service Control Manager
+
+        w3wp.exe (PID: 4312) — IIS Worker Process (Pool: DefaultAppPool)
+
+            cmd.exe (PID: 18404) — Spawned via application layer execution
+
+                whoami.exe (PID: 18408) — Active reconnaissance utility
+
+                ipconfig.exe (PID: 18412) — Active network configuration discovery
+
+2. IIS Web Server Access Logs & Network Context
+
+    Inbound Connection: 30 milliseconds before process creation, w3wp.exe accepted an HTTP POST request from external IP 45.142.120.9.
+
+    Target URI: https://www.company-sales.com/uploadedfiles/images/avatar.aspx
+
+    HTTP Status Code: 200 OK (Response size: 142 bytes)
+
+    External IP Threat Intelligence: 45.142.120.9 is flagged in threat feeds as an active bulletproof hosting provider node associated with automated vulnerability scanning and web exploitation frameworks within the last 7 days.
+
+3. File Integrity Monitoring (FIM) Timeline
+
+    File Creation Event: 2026-07-13T14:23:10.000Z
+
+    File Path: C:\inetpub\wwwroot\uploadedfiles\images\avatar.aspx
+
+    Created By Process: w3wp.exe
+
+    Static Analysis Strings: File includes an anomalous code block containing Server.CreateObject("WScript.Shell") and a variable mapping input parameter strings to runtime execution commands.

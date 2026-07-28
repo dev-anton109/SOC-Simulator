@@ -1,0 +1,14 @@
+Alert Metadata:
+Alert Name: Malicious Script Execution
+Severity: High
+Timestamp: 2026-07-18T17:15:00Z
+Sensor: Carbon Black
+
+Raw Log Data:
+Jul 18 17:15:00 ProcessCreation: image=wscript.exe cmd="C:\Users\Public\download.vbs"
+
+Artifact Panel Context:
+
+File Contents: Obfuscated downloader script pulling from an IP registered in a high-risk jurisdiction.
+
+User Activity: User reported receiving phishing email recently.

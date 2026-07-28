@@ -1,0 +1,16 @@
+Alert Metadata:
+Alert Name: Ransomware File Pattern
+Severity: Critical
+Timestamp: 2026-07-18T16:00:00Z
+Sensor: Microsoft Defender
+
+Raw Log Data:
+EventID: 11
+TargetFile: "C:\Documents\File.txt.locked"
+Process: "C:\Users\Admin\Downloads\decrypter.exe"
+
+Artifact Panel Context:
+
+File Metadata: System-wide mass encryption event starting in home directory.
+
+Threat Intel: Ransomware extension match.

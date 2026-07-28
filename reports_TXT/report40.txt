@@ -1,0 +1,14 @@
+Alert Metadata:
+Alert Name: PowerShell Execution (Encoded)
+Severity: High
+Timestamp: 2026-07-18T14:45:00Z
+Sensor: Windows Security Event Log
+
+Raw Log Data:
+CommandLine: "powershell.exe -Enc QwBvAG0AcABhAG4AeQAgAEkAbgB2AGUAbgB0AG8AcgB5ACAAUwBjAHIAaQBwAHQA"
+
+Artifact Panel Context:
+
+Decoded Command: "Company Inventory Script".
+
+Scheduled Task: Validated as part of weekly hardware asset reporting.

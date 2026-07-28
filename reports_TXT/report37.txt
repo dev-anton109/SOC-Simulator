@@ -1,0 +1,15 @@
+Alert Metadata:
+Alert Name: Unusual Service Account Login
+Severity: High
+Timestamp: 2026-07-18T13:20:00Z
+Sensor: Windows Event Logs
+
+Raw Log Data:
+time,event_id,user,workstation,logon_type
+2026-07-18T13:20:00Z,4624,svc_backup,WKSTN-ADMIN-01,3
+
+Artifact Panel Context:
+
+Account Usage: svc_backup is configured only for use on Backup Servers.
+
+Workstation: WKSTN-ADMIN-01 is a marketing department computer.

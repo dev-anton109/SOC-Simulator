@@ -1,0 +1,22 @@
+Alert Metadata:
+Alert Name: Suspicious ASEP Registry Key Modification
+Severity: High
+Timestamp: 2026-07-18T18:00:00Z
+Sensor: CrowdStrike Falcon
+
+Raw Log Data:
+[RegistryEvent]
+Timestamp = "2026-07-18T18:00:00Z"
+EventType = "SetValue"
+Hostname = "WKSTN-EXEC-02"
+ProcessPath = "C:\\Users\\CEO\\AppData\\Roaming\\Explorer\\update.exe"
+RegistryPath = "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\WinUpdate"
+ValueData = "C:\\Users\\CEO\\AppData\\Roaming\\Explorer\\update.exe -silent"
+
+Artifact Panel Context:
+
+Execution Context: update.exe is unsigned, unregistered, and was dropped by an unknown macro 10 minutes earlier.
+
+Threat Intelligence: Hash of update.exe matches known signatures for the AsyncRAT malware family.
+
+Persistence Mechanism: Auto-Start Extensibility Point (ASEP) Run key modified to ensure malware executes on system reboot.

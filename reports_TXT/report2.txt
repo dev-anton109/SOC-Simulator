@@ -1,0 +1,65 @@
+Alert Metadata
+
+    Alert Name: Suspicious Encoded PowerShell Command Execution
+
+    Severity: High
+
+    Timestamp: 2026-11-04T08:32:10.114Z
+
+    Sensor/Tool Source: CrowdStrike Falcon
+
+The Raw Log Data
+
+[event]
+id = "cs-892341109-x"
+type = "ProcessRollup2"
+timestamp = "2026-11-04T08:32:10.114Z"
+
+[device]
+hostname = "CORP-MGMT-SRV04"
+local_ip = "192.168.42.15"
+os = "Windows Server 2022 Datacenter"
+
+[process]
+id = 5824
+name = "powershell.exe"
+path = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+command_line = "powershell.exe -nop -w hidden -encodedcommand SUVYIChOZXctT2JqZWN0IE5ldC5XZWJDbGllbnQpLkRvd25sb2FkU3RyaW5nKCdodHRwOi8vMTkyLjE2OC40Mi4xMDAvaW52ZW50b3J5LnBzMScp"
+md5 = "92E46261571C50C0CE8593F42A1D77C0"
+user = "NT AUTHORITY\\SYSTEM"
+
+[parent_process]
+id = 912
+name = "taskeng.exe"
+command_line = "C:\\Windows\\System32\\taskeng.exe {B6D8C41A-45E2-4D93-9F1C-D231E937A512}"
+
+Artifact Panel Context
+1. Process Lineage Tree
+
+    svchost.exe (PID: 720) — Host Process for Windows Services
+
+        taskeng.exe (PID: 912) — Task Scheduler Engine (Context: Executing Task definition {B6D8C41A-45E2-4D93-9F1C-D231E937A512})
+
+            powershell.exe (PID: 5824) — Launched with SYSTEM privileges, initiating outbound HTTP request
+
+2. Scheduled Task Configuration
+
+    Task Name: \Microsoft\Windows\EnterpriseManagement\AssetInventory_Sync
+
+    Task Path: C:\Windows\System32\Tasks\Microsoft\Windows\EnterpriseManagement\AssetInventory_Sync
+
+    Registered Author: CORP\svc-infra-admin
+
+    Creation Date: 2024-03-12T14:22:01.000Z
+
+    Trigger: Weekly at 08:30 AM every Wednesday
+
+3. Network Destination & Host Reputation
+
+    Target IP Address: 192.168.42.100
+
+    Internal DNS Resolution: CORP-SCCM-01.corp.local
+
+    Subnet Classification: Internal Core Infrastructure Server Segment (VLAN 40)
+
+    Active Services: Microsoft Endpoint Configuration Manager (SCCM) Distribution Point Node

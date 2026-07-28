@@ -1,0 +1,29 @@
+Alert Metadata:
+Alert Name: AWS S3 Bucket Made Public
+Severity: High
+Timestamp: 2026-07-18T12:15:33Z
+Sensor: AWS GuardDuty
+
+Raw Log Data:
+[Records.0]
+eventVersion = "1.08"
+userIdentity.type = "IAMUser"
+userIdentity.principalId = "AIDAXXXXXXXXXXXXXXXXX"
+userIdentity.arn = "arn:aws:iam::123456789012:user/jenkins-automation"
+eventTime = "2026-07-18T12:15:33Z"
+eventSource = "s3.amazonaws.com"
+eventName = "PutBucketPublicAccessBlock"
+awsRegion = "us-east-1"
+sourceIPAddress = "10.50.2.14"
+userAgent = "aws-cli/2.0.30 Python/3.7.4 Linux/4.14.177-139.253.amzn2.x86_64 botocore/2.0.0"
+requestParameters.bucketName = "assets.public-website.company.com"
+requestParameters.PublicAccessBlockConfiguration.RestrictPublicBuckets = false
+requestParameters.PublicAccessBlockConfiguration.BlockPublicPolicy = false
+
+Artifact Panel Context:
+
+Resource Purpose: CMDB tags the bucket assets.public-website.company.com as "Public Facing Images and CSS".
+
+Pipeline Context: A Jenkins deployment pipeline executed a terraform apply at 12:15:00Z to provision new CDN resources.
+
+Data Classification: Bucket contains only .jpg, .png, and .css files with no sensitive PII or corporate data tags.

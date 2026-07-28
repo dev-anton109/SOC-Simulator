@@ -1,0 +1,18 @@
+Alert Metadata:
+Alert Name: Security Software Disabled
+Severity: Critical
+Timestamp: 2026-07-18T10:45:10Z
+Sensor: Carbon Black
+
+Raw Log Data:
+[event]
+Action = "ProcessTermination"
+TargetProcess = "C:\Program Files\CrowdStrike\CSFalconService.exe"
+Initiator = "C:\Windows\System32\cmd.exe"
+CommandLine = "taskkill /F /IM CSFalconService.exe"
+
+Artifact Panel Context:
+
+User Account: NT AUTHORITY\SYSTEM
+
+Process Lineage: wscript.exe (script.vbs) -> cmd.exe

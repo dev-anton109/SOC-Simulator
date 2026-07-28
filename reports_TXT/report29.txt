@@ -1,0 +1,17 @@
+Alert Metadata:
+Alert Name: Excessive Failed Login Attempts
+Severity: Low
+Timestamp: 2026-07-18T09:30:15Z
+Sensor: Okta
+
+Raw Log Data:
+timestamp,user,ip_address,event_type,result,reason
+2026-07-18T09:30:15Z,j.doe@company.com,10.0.5.22,login_attempt,FAILURE,invalid_credentials
+2026-07-18T09:30:16Z,j.doe@company.com,10.0.5.22,login_attempt,FAILURE,invalid_credentials
+2026-07-18T09:30:17Z,j.doe@company.com,10.0.5.22,login_attempt,SUCCESS,null
+
+Artifact Panel Context:
+
+IP Context: 10.0.5.22 is a known internal office workstation.
+
+Behavior: User successfully authenticated immediately after correcting the keyboard layout issue.

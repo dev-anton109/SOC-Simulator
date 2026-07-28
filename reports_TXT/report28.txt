@@ -1,0 +1,20 @@
+Alert Metadata:
+Alert Name: Unusual Process Execution (LSASS)
+Severity: Critical
+Timestamp: 2026-07-18T09:20:00Z
+Sensor: Sysmon
+
+Raw Log Data:
+EventID: 10
+TimeCreated: "2026-07-18T09:20:00Z"
+TargetImage: "C:\Windows\system32\lsass.exe"
+SourceImage: "C:\Users\Public\svchost.exe"
+GrantedAccess: "0x1F0FFF"
+
+Artifact Panel Context:
+
+Source File Hash: d41d8cd98f00b204e9800998ecf8427e (Matches Mimikatz signature)
+
+User: "DOMAIN\local_user"
+
+Process Lineage: explorer.exe -> svchost.exe (running from C:\Users\Public)

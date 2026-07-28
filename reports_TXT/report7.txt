@@ -1,0 +1,19 @@
+Alert Metadata:
+Alert Name: Ransomware-like File Modification Rate
+Severity: High
+Timestamp: 2026-07-18T10:18:12Z
+Sensor: SentinelOne
+
+Raw Log Data:
+time,hostname,user,action,file_path,process_name,hash
+2026-07-18T10:18:12Z,SRV-APP-01,NT_AUTHORITY\SYSTEM,FileWrite,C:\Program Files\App\cfg.bak,C:\Windows\ccm\CcmExec.exe,84A48A549...
+2026-07-18T10:18:12Z,SRV-APP-01,NT_AUTHORITY\SYSTEM,FileWrite,C:\Program Files\App\sys.bak,C:\Windows\ccm\CcmExec.exe,84A48A549...
+2026-07-18T10:18:13Z,SRV-APP-01,NT_AUTHORITY\SYSTEM,FileWrite,C:\Program Files\App\db.bak,C:\Windows\ccm\CcmExec.exe,84A48A549...
+
+Artifact Panel Context:
+
+Process Signature Check: CcmExec.exe is validly signed by Microsoft Corporation.
+
+Recent Change Requests: CRQ-88912 approved for SCCM client updates and backups pushing at 10:00Z.
+
+Network Connections: CcmExec.exe is communicating only with internal WSUS/SCCM management servers.

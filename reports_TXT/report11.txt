@@ -1,0 +1,20 @@
+Alert Metadata:
+Alert Name: Excessive Internal Port Scanning
+Severity: Medium
+Timestamp: 2026-07-18T11:45:00Z
+Sensor: Palo Alto Networks
+
+Raw Log Data:
+time,src_ip,dst_ip,dst_port,protocol,action,app,rule
+2026-07-18T11:45:00Z,10.10.100.5,10.20.1.10,445,tcp,deny,smb,Block_Internal_Spread
+2026-07-18T11:45:00Z,10.10.100.5,10.20.1.11,445,tcp,deny,smb,Block_Internal_Spread
+2026-07-18T11:45:01Z,10.10.100.5,10.20.1.12,445,tcp,deny,smb,Block_Internal_Spread
+2026-07-18T11:45:01Z,10.10.100.5,10.20.1.13,445,tcp,deny,smb,Block_Internal_Spread
+
+Artifact Panel Context:
+
+IP Context: 10.10.100.5 is registered in the CMDB as "SecOps-Tenable-Nessus-Scanner".
+
+Scheduled Tasks: Vulnerability management schedules show a weekly authenticated sweep of the 10.20.1.0/24 subnet every Saturday at 11:30Z.
+
+Previous History: Identical traffic patterns observed from this IP over the past 6 months without incidents.

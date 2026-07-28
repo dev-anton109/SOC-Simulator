@@ -1,0 +1,20 @@
+Alert Metadata:
+Alert Name: MFA Fatigue Attack Detected
+Severity: High
+Timestamp: 2026-07-18T17:15:00Z
+Sensor: Duo Security
+
+Raw Log Data:
+timestamp,user,integration,factor,result,reason,ip_address,country
+2026-07-18T17:13:05Z,c.smith@company.com,VPN,Duo Push,FAILURE,User Rejected,45.89.20.11,RU
+2026-07-18T17:13:20Z,c.smith@company.com,VPN,Duo Push,FAILURE,User Rejected,45.89.20.11,RU
+... [40 similar events omitted] ...
+2026-07-18T17:15:00Z,c.smith@company.com,VPN,Duo Push,SUCCESS,User Approved,45.89.20.11,RU
+
+Artifact Panel Context:
+
+User Location Context: C. Smith is actively badged into the corporate office in London, UK.
+
+IP Context: 45.89.20.11 is a known Bulletproof hosting IP space associated with initial access brokers.
+
+Login Volume: 45 consecutive push notifications were sent within a 2-minute window before the final approval.

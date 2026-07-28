@@ -1,0 +1,25 @@
+Alert Metadata:
+Alert Name: Suspicious Network Reconnaissance (SharpHound)
+Severity: High
+Timestamp: 2026-07-18T15:10:00Z
+Sensor: Microsoft Defender for Endpoint
+
+Raw Log Data:
+AlertTitle: "Potential BloodHound/SharpHound Reconnaissance"
+Timestamp: "2026-07-18T15:10:00Z"
+DeviceName: "LPT-SALES-41"
+ActionType: "LdapQuery"
+InitiatingProcessFileName: "sh.exe"
+InitiatingProcessCommandLine: "sh.exe -c All"
+AdditionalFields:
+  Query: "(|(samAccountType=805306368)(samAccountType=805306369)(samAccountType=268435456)(samAccountType=268435457)(samAccountType=536870912)(samAccountType=536870913))"
+  ObjectsReturned: 14502
+  DomainController: "DC-01.company.local"
+
+Artifact Panel Context:
+
+Query Volume: Over 14,000 LDAP objects (users, groups, computers, trusts) were enumerated in less than 45 seconds.
+
+Process Context: sh.exe was running out of a user-writable directory (C:\Users\m.scott\AppData\Local\Temp\).
+
+Network Context: Simultaneous SMB port 445 connections were made to over 300 internal endpoints to check for local admin rights.

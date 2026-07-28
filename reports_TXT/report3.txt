@@ -1,0 +1,64 @@
+Alert Metadata
+
+    Alert Name: UnauthorizedAccess:IAMUser/TorIPCaller
+
+    Severity: High
+
+    Timestamp: 2026-07-13T13:02:11.415Z
+
+    Sensor/Tool Source: AWS GuardDuty
+
+The Raw Log Data
+
+id: "gd-f91a28cb-7312-4b9e-bd82-990a1f4b8821"
+type: "UnauthorizedAccess:IAMUser/TorIPCaller"
+region: "us-west-2"
+partition: "aws"
+createdAt: "2026-07-13T13:02:11.415Z"
+updatedAt: "2026-07-13T13:05:00.000Z"
+schemaVersion: "2.0"
+resource:
+  resourceType: "AccessKey"
+  accessKeyDetails:
+    accessKeyId: "AKIAIOSFODNN7EXAMPLE"
+    principalId: "AIDAJKFEWNLXOS92KMM1S"
+    userType: "IAMUser"
+    userName: "billing-automation-svc"
+action:
+  actionType: "AWS_API_CALL"
+  awsApiCallAction:
+    api: "AssumeRole"
+    serviceName: "sts.amazonaws.com"
+    callerType: "RemoteIP"
+    remoteIpDetails:
+      ipAddressV4: "185.220.101.5"
+      organization:
+        asn: "208367"
+        asnOrg: "Zwiebelfreunde e.V."
+      country:
+        countryName: "Germany"
+      city:
+        cityName: "Berlin"
+
+Artifact Panel Context
+1. User Access Key Baseline & Usage History
+
+    Historical IP Baseline: Over the past 180 days, billing-automation-svc has authenticated exclusively from the corporate on-premises static IP block (198.51.100.42/29) via automated Jenkins cron jobs located in the Chicago data center.
+
+    Key Age: The access key AKIAIOSFODNN7EXAMPLE was generated 412 days ago and has never been rotated.
+
+2. Threat Intelligence & Network Context
+
+    Source IP: 185.220.101.5
+
+    IP Reputation: Verified active Tor exit node listed under public threat intelligence feeds for the last 30 days.
+
+    Concurrent Session Data: Within 3 minutes of this API call, the same Access Key ID initiated ModifyInstanceAttribute and DescribeSecrets calls across three unauthorized AWS regions (eu-west-1, ap-northeast-1, and sa-east-1).
+
+3. CloudTrail Event Correlation
+
+    Event ID: c210a47b-189f-431d-b8d2-c7820bb15f01
+
+    User Agent: aws-cli/2.15.15 Python/3.11.6 Linux/6.1.0-13-amd64 exe/x86_64.debian.12 (Historical baseline for this service account shows exclusive use of aws-sdk-java/2.20.45).
+
+    Error Status: The subsequent requests to DescribeSecrets returned AccessDenied due to permission boundaries, followed immediately by repeated credential enumeration behavior.

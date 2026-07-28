@@ -1,0 +1,16 @@
+Alert Metadata:
+Alert Name: Web Application Directory Traversal Attempt
+Severity: Medium
+Timestamp: 2026-07-18T17:40:00Z
+Sensor: F5 BIG-IP WAF
+
+Raw Log Data:
+Jul 18 17:40:00 F5-WAF-01 ASM: [Attack Type: Directory Traversal] [Severity: Warning] Client IP: 10.10.100.12 Request: GET /api/v1/download?file=../../../../../../etc/passwd HTTP/1.1 User-Agent: QualysGuard/11.0 Host: app.company.internal
+
+Artifact Panel Context:
+
+IP Registration: 10.10.100.12 belongs to the dedicated security vulnerability scanning subnet.
+
+Outcome: The F5 WAF successfully blocked the request and returned a 403 Forbidden status code; the backend web server never processed the payload.
+
+Tooling Signature: The User-Agent matches the internal Qualys vulnerability scanner.

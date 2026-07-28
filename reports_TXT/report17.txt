@@ -1,0 +1,28 @@
+Alert Metadata:
+Alert Name: Large Data Exfiltration Detected
+Severity: Critical
+Timestamp: 2026-07-18T14:55:00Z
+Sensor: Zscaler
+
+Raw Log Data:
+[transaction]
+timestamp = "2026-07-18T14:55:00Z"
+user = "j.doe@company.com"
+client_ip = "10.30.5.15"
+hostname = "WKSTN-DBA-10"
+
+[network]
+destination_url = "https://g.api.mega.co.nz/cs"
+destination_ip = "31.216.144.5"
+bytes_sent = 48318382080
+bytes_received = 1048576
+action = "Allowed"
+app_category = "File Sharing"
+
+Artifact Panel Context:
+
+DLP Alert correlation: Endpoint DLP simultaneously flagged the compression of Customer_DB_Backup_Q2.bak into a 7z archive.
+
+HR Context: User J. Doe submitted their two-week resignation notice on July 16.
+
+Destination Reputation: Mega.co.nz is categorized as a personal file-sharing platform, violating corporate data handling policies for database administrators.

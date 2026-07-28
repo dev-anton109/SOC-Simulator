@@ -1,0 +1,21 @@
+Alert Metadata:
+Alert Name: Highly Encoded PowerShell Execution
+Severity: High
+Timestamp: 2026-07-18T16:30:00Z
+Sensor: Carbon Black
+
+Raw Log Data:
+[process_creation]
+timestamp = "2026-07-18T16:30:00Z"
+sensor_name = "EXCH-MBOX-01"
+username = "NT AUTHORITY\\SYSTEM"
+process_path = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+command_line = "powershell.exe -NonInteractive -WindowStyle Hidden -EncodedCommand JABF7AHIAbwByAEEAYwB0AGkAbwBuAFAAcgBlAGYAZQByAGUAbgBjAGUAIAA9ACAAJwBTAHQAbwBwACcAOwAgACQAdgBhAGwAdQBlACAAPQAgAEcAZQB0AC0ATQBhAGkAbABiAG8AeABEAGEAdABhAGIAYQBzAGUA"
+
+Artifact Panel Context:
+
+Payload Decoding: The Base64 encoded string decodes to benign Microsoft Exchange management commands: $ErrorActionPreference = 'Stop'; $value = Get-MailboxDatabase.
+
+Parent Process: Spawned by MSExchangeHMWorker.exe (Exchange Health Manager Worker).
+
+Frequency: This identical command structure executes every 5 minutes as part of standard Exchange health monitoring.

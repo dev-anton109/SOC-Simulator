@@ -1,0 +1,19 @@
+Alert Metadata:
+Alert Name: Successful Login from Known VPN
+Severity: Low
+Timestamp: 2026-07-18T12:00:00Z
+Sensor: Azure AD
+
+Raw Log Data:
+[signin]
+User = "m.jones@company.com"
+IPAddress = "192.0.2.5"
+Location = "New York, US"
+App = "Office 365"
+Status = "Success"
+
+Artifact Panel Context:
+
+Identity: M. Jones is a remote worker connecting from the corporate VPN headend.
+
+Historical Trend: Login location is consistent with user's profile.

@@ -1,0 +1,18 @@
+Alert Metadata:
+Alert Name: Privilege Escalation Attempt Detected
+Severity: Medium
+Timestamp: 2026-07-18T15:45:00Z
+Sensor: Splunk ES
+
+Raw Log Data:
+_time,EventCode,ComputerName,AccountName,ProcessName,PrivilegeList
+2026-07-18T15:45:00Z,4673,SRV-VDI-05,helpdesk_tom,C:\Windows\System32\sysprep\sysprep.exe,SeTcbPrivilege
+2026-07-18T15:45:02Z,4673,SRV-VDI-05,helpdesk_tom,C:\Windows\System32\sysprep\sysprep.exe,SeTcbPrivilege
+
+Artifact Panel Context:
+
+User Role: helpdesk_tom is an authorized Virtual Desktop Infrastructure (VDI) administrator.
+
+Host Purpose: SRV-VDI-05 is an imaging server used strictly for generating golden images.
+
+Operational Baseline: The execution of sysprep.exe occurs multiple times per week on this host by the Helpdesk team to finalize OS images.

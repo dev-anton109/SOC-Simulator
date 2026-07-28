@@ -1,0 +1,15 @@
+Alert Metadata:
+Alert Name: Authorized Vulnerability Scan
+Severity: Low
+Timestamp: 2026-07-18T11:00:00Z
+Sensor: Splunk ES
+
+Raw Log Data:
+time,src_ip,dst_ip,proto,msg
+2026-07-18T11:00:00Z,172.16.1.5,172.16.1.0/24,tcp,Nessus_Vulnerability_Scan_Detected
+
+Artifact Panel Context:
+
+Asset Identification: 172.16.1.5 matches the designated Internal Vulnerability Scanner.
+
+Schedule: Recurring Saturday morning scan.

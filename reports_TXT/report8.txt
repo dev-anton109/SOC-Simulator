@@ -1,0 +1,17 @@
+Alert Metadata:
+Alert Name: Impossible Travel Detected
+Severity: High
+Timestamp: 2026-07-18T10:25:00Z
+Sensor: Azure AD Identity Protection
+
+Raw Log Data:
+Jul 18 10:25:00 AzureAD-Log: EventType=SignIn Logs UserPrincipalName=alice.wang@company.com AppDisplayName=Office365 IPAddress=185.15.20.12 Location=Amsterdam,NL ClientAppUsed=Browser DeviceID=Unregistered AuthenticationStep=MFA_Satisfied Timestamp=2026-07-18T10:25:00Z
+Jul 18 09:15:00 AzureAD-Log: EventType=SignIn Logs UserPrincipalName=alice.wang@company.com AppDisplayName=Office365 IPAddress=72.14.201.5 Location=NewYork,US ClientAppUsed=Browser DeviceID=Registered-WKSTN09 AuthStep=PrimaryAuth Timestamp=2026-07-18T09:15:00Z
+
+Artifact Panel Context:
+
+Authentication Method: Amsterdam login utilized an active session cookie (Pass-the-Cookie).
+
+Endpoint Context: The registered workstation in New York shows active process usage at the same time as the Amsterdam login.
+
+External IP Reputation: Amsterdam IP (185.15.20.12) is associated with anonymous VPN/proxy services.

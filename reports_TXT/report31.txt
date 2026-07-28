@@ -1,0 +1,17 @@
+Alert Metadata:
+Alert Name: New Local Admin Account Created
+Severity: High
+Timestamp: 2026-07-18T10:15:00Z
+Sensor: Windows Security Event Log
+
+Raw Log Data:
+EventID: 4720
+TimeCreated: "2026-07-18T10:15:00Z"
+SubjectUser: "DOMAIN\compromised_user"
+TargetUser: "support_admin"
+
+Artifact Panel Context:
+
+User Context: compromised_user has no delegated rights to manage local accounts.
+
+Audit Log: No corresponding change request ticket found for this action.

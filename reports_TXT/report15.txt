@@ -1,0 +1,17 @@
+Alert Metadata:
+Alert Name: RDP Connection From Unusual Country
+Severity: Medium
+Timestamp: 2026-07-18T13:45:00Z
+Sensor: Cisco ASA
+
+Raw Log Data:
+timestamp,src_ip,src_port,dst_ip,dst_port,protocol,action,user
+2026-07-18T13:45:00Z,85.214.132.55,59432,203.0.113.10,3389,tcp,permit,ext_r.williams
+
+Artifact Panel Context:
+
+Geo-Location: 85.214.132.55 geolocates to Berlin, Germany. Normal baseline is Chicago, US.
+
+HR/Travel Integration: User R. Williams has an approved Concur travel itinerary for the European Cybersecurity Summit in Berlin from July 17 - July 21.
+
+Device Context: The connection was established using the corporate-issued laptop with a valid machine certificate.

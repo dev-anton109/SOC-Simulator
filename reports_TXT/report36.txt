@@ -1,0 +1,16 @@
+Alert Metadata:
+Alert Name: Suspicious Binary in Temp
+Severity: High
+Timestamp: 2026-07-18T12:45:33Z
+Sensor: SentinelOne
+
+Raw Log Data:
+event: FileCreate
+path: "C:\Users\User\AppData\Local\Temp\invoice.exe"
+hash: "SHA256: 7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069"
+
+Artifact Panel Context:
+
+Malware Analysis: Hash flagged in VirusTotal as "Trojan.AgentTesla".
+
+Process Lineage: Outlook.exe -> invoice.exe.

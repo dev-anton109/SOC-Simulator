@@ -1,0 +1,17 @@
+Alert Metadata:
+Alert Name: System Time Modification
+Severity: Medium
+Timestamp: 2026-07-18T18:00:00Z
+Sensor: Windows Security Event Log
+
+Raw Log Data:
+[event]
+EventID = 4616
+Account = "SYSTEM"
+Message = "System time was changed"
+
+Artifact Panel Context:
+
+Clock Sync: Standard NTP synchronization with internal time server ntp.company.com.
+
+User Account: Automated system process.

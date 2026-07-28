@@ -1,0 +1,14 @@
+Alert Metadata:
+Alert Name: Unauthorized Cloud Storage Access
+Severity: Medium
+Timestamp: 2026-07-18T11:30:00Z
+Sensor: Zscaler
+
+Raw Log Data:
+Jul 18 11:30:00 Zscaler-Proxy: user=a.smith@company.com url=mega.nz category=file-sharing action=allowed bytes_out=500MB
+
+Artifact Panel Context:
+
+User Policy: Company policy restricts use of unauthorized file-sharing sites.
+
+Data Sensitivity: File uploaded named "Project_Internal_Planning.xlsx".
