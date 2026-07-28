@@ -2,7 +2,7 @@
 
 [[ ! -d reports ]] && { echo "Directory: reports not found."; exit 1; }
 [[ ! -d cgi-bin ]] && mkdir -p cgi-bin
-cd reports
+cd reports_TXT
 
 for file in *.txt; do
 touch "$file".cgi
