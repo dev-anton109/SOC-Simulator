@@ -42,7 +42,7 @@ PREREQUISITES
 
 Before starting the servers, you need to make some files executable by typing the following commands:
 
-	- chmod +x backend
+	- chmod +x file-processor
 
 	- chmod +x reset
 
